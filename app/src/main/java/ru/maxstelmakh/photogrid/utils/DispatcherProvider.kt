@@ -1,4 +1,4 @@
-package ru.maxstelmakh.photogrid.core
+package ru.maxstelmakh.photogrid.utils
 
 import kotlinx.coroutines.CoroutineDispatcher
 

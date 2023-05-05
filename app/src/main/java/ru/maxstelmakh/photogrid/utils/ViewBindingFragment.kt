@@ -1,4 +1,4 @@
-package ru.maxstelmakh.photogrid.core
+package ru.maxstelmakh.photogrid.utils
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -2,7 +2,7 @@ package ru.maxstelmakh.photogrid.gridphotos.presentation
 
 import android.os.Bundle
 import android.view.View
-import ru.maxstelmakh.photogrid.core.ViewBindingFragment
+import ru.maxstelmakh.photogrid.utils.ViewBindingFragment
 import ru.maxstelmakh.photogrid.databinding.FragmentGridPhotosBinding
 
 class GridPhotosFragment : ViewBindingFragment<FragmentGridPhotosBinding>() {
