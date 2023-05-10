@@ -1,9 +1,7 @@
-package ru.maxstelmakh.photogrid.core
+package ru.maxstelmakh.photogrid.utils
 
 import kotlinx.coroutines.withContext
 import retrofit2.Response
-import ru.maxstelmakh.photogrid.utils.DispatcherProvider
-import ru.maxstelmakh.photogrid.utils.Result
 
 suspend fun <T : Any> apiCall(
     dispatcherProvider: DispatcherProvider,

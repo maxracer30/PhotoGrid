@@ -4,17 +4,16 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
-import okhttp3.Headers
 import okhttp3.OkHttpClient
-import okhttp3.internal.addHeaderLenient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import ru.maxstelmakh.photogrid.BuildConfig
+import ru.maxstelmakh.photogrid.utils.DefaultDispatcherProvider
 
 @Module(includes = [BindAppModule::class])
 @InstallIn(ViewModelComponent::class)
-class AppModule {
+object AppModule {
 
     @Provides
     fun interceptor(): HttpLoggingInterceptor {
@@ -39,4 +38,10 @@ class AppModule {
             .build()
             .create(UnsplashAPI::class.java)
     }
+
+    @Provides
+    fun provideDefaultDispatcherProvider(): DefaultDispatcherProvider {
+        return DefaultDispatcherProvider()
+    }
+
 }
