@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/gridPhotosFragment">
+
+    <fragment
+        android:id="@+id/gridPhotosFragment"
+        android:name="ru.maxstelmakh.photogrid.gridphotos.presentation.GridPhotosFragment"
+        android:label="fragment_grid_photos"
+        tools:layout="@layout/fragment_grid_photos" />
+    <fragment
+        android:id="@+id/lookPhotoFragment"
+        android:name="ru.maxstelmakh.photogrid.lookphoto.presentation.LookPhotoFragment"
+        android:label="fragment_look_photo"
+        tools:layout="@layout/fragment_look_photo" />
+</navigation>
