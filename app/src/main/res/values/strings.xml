@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">PhotoGrid</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="photo">photo</string>
     <string name="load_error">An error occurred during the download</string>
     <string name="try_again">Try again</string>
     <string name="search_photo">Search</string>
+    <string name="zooming_image">Zooming image</string>
+    <string name="load_goods_error">Image loading error</string>
 </resources>

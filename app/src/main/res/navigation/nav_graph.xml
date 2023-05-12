@@ -9,10 +9,18 @@
         android:id="@+id/gridPhotosFragment"
         android:name="ru.maxstelmakh.photogrid.gridphotos.presentation.GridPhotosFragment"
         android:label="fragment_grid_photos"
-        tools:layout="@layout/fragment_grid_photos" />
+        tools:layout="@layout/fragment_grid_photos" >
+        <action
+            android:id="@+id/action_gridPhotosFragment_to_lookPhotoFragment"
+            app:destination="@id/lookPhotoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/lookPhotoFragment"
         android:name="ru.maxstelmakh.photogrid.lookphoto.presentation.LookPhotoFragment"
         android:label="fragment_look_photo"
-        tools:layout="@layout/fragment_look_photo" />
+        tools:layout="@layout/fragment_look_photo" >
+        <argument
+            android:name="image"
+            app:argType="ru.maxstelmakh.photogrid.gridphotos.data.model.Image" />
+    </fragment>
 </navigation>

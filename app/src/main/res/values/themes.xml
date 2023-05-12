@@ -1,8 +1,10 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.PhotoGrid" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
+        <item name="android:colorBackground">@color/day_background</item>
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowContentTransitions">true</item>
     </style>
 
     <style name="Theme.PhotoGrid" parent="Base.Theme.PhotoGrid" />

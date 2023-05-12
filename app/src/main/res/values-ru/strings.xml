@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PhotoGrid</string>
+    <string name="photo">Фото</string>
+    <string name="load_error">Ошибка</string>
+    <string name="try_again">Ещё раз?</string>
+    <string name="search_photo">Найти…</string>
+    <string name="zooming_image">Изображение во весть экран</string>
+    <string name="load_goods_error">Произошла ошибка</string>
+</resources>
