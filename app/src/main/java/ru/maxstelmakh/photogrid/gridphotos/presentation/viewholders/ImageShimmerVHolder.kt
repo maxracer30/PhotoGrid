@@ -8,6 +8,5 @@ class ImageShimmerVHolder(
 ) : RecyclerView.ViewHolder(view.root) {
 
     fun bind() {
-
     }
 }

@@ -5,7 +5,7 @@ import ru.maxstelmakh.photogrid.databinding.ItemImageCardBinding
 import ru.maxstelmakh.photogrid.gridphotos.data.model.Image
 import ru.maxstelmakh.photogrid.utils.adapters.itemsadapter.Click
 import ru.maxstelmakh.photogrid.utils.adapters.itemsadapter.ItemsAdapterModel
-import ru.maxstelmakh.photogrid.utils.imageFromUrl
+import ru.maxstelmakh.photogrid.utils.slowAnimLoad
 
 class ImageVHolder(
     private val view: ItemImageCardBinding,
@@ -14,11 +14,11 @@ class ImageVHolder(
 
     fun bind(item: ItemsAdapterModel) = with(view) {
         val model = item.getItem() as Image
-
+        root.transitionName = model.id
         imageView.apply {
-            imageFromUrl(model.urls.thumb)
+            slowAnimLoad(model.urls.thumb, model.urls.small)
             setOnClickListener {
-                onClick?.invoke(Click(view = it, item = item))
+                onClick?.invoke(Click(view = view, item = model))
             }
         }
     }

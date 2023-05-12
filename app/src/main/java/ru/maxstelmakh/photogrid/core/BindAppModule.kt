@@ -11,7 +11,6 @@ import ru.maxstelmakh.photogrid.utils.DispatcherProvider
 @InstallIn(SingletonComponent::class)
 interface BindAppModule {
 
-
     @Binds
     fun dispatcherProvider(dispatcherProvider: DefaultDispatcherProvider): DispatcherProvider
 

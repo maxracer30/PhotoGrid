@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.dagger.hilt.android'
+    id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-parcelize'
     id 'kotlin-android'
     id 'kotlin-kapt'
@@ -42,6 +43,7 @@ android {
         debug {
             buildConfigField "String", "BASE_URL", "\"https://api.unsplash.com/\""
             buildConfigField "String", "TEST_CLIENT_ID", "\"Y_4GN3TQAY1ytfDpJi-lwvQuGT24OW9Gm9N-WFWwCZw\""
+            buildConfigField "String", "TEST_CLIENT_ID1", "\"LuLg4EOof55QShRSnY3Gc-sYDPFuEmpVssTV7LC2K3s\""
         }
         release {
             buildConfigField "String", "BASE_URL", "\"https://api.unsplash.com/\""
@@ -95,4 +97,7 @@ dependencies {
 
     def shimmer_version = "0.5.0"
     implementation "com.facebook.shimmer:shimmer:$shimmer_version"
+
+    def touch_image_version = "1.4.1"
+    implementation "com.github.MikeOrtiz:TouchImageView:$touch_image_version"
 }

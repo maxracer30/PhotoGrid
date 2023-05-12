@@ -1,8 +1,8 @@
 package ru.maxstelmakh.photogrid.utils.adapters.itemsadapter
 
-import android.view.View
+import ru.maxstelmakh.photogrid.databinding.ItemImageCardBinding
 
 data class Click(
-    val view: View,
+    val view: ItemImageCardBinding,
     val item: ItemsAdapterModel,
 )

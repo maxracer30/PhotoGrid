@@ -24,20 +24,24 @@ class GridPhotosViewModel @Inject constructor(
 
     var items: Flow<PagingData<ItemsAdapterModel>>
 
-    val searchBy = MutableLiveData("")
+    private val searchBy = MutableLiveData("")
 
     init {
         items =
             searchBy
                 .asFlow()
-                .debounce(1000)
+                .debounce(500)
                 .flatMapLatest {
-                    photoRepository.fetch()
+                    photoRepository.fetch(it)
                 }
                 .cachedIn(viewModelScope)
     }
 
     fun refresh() {
-        //todo
+        searchBy.postValue(this.searchBy.value)
+    }
+
+    fun setSearchBy(word: String) {
+        searchBy.postValue(word)
     }
 }
