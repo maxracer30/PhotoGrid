@@ -18,17 +18,17 @@ class DefaultPhotoRepository @Inject constructor(
     private val dispatcherProvider: DispatcherProvider
 ) : PhotoRepository {
 
-    override suspend fun fetch(): Flow<PagingData<ItemsAdapterModel>> {
+    override suspend fun fetch(search: String): Flow<PagingData<ItemsAdapterModel>> {
         val loader: PhotoPageLoader = { page, perPage ->
-            getPhotos(page, perPage)
+            getPhotos(page, perPage, search)
         }
 
         return Pager(
             config = PagingConfig(
                 pageSize = PAGE_SIZE,
-                enablePlaceholders = false,
+                enablePlaceholders = true,
                 prefetchDistance = PREFETCH_DISTANCE,
-                maxSize = MAX_SIZE
+                maxSize = MAX_SIZE,
             ),
             pagingSourceFactory = {
                 PhotoPagingSource(
@@ -41,29 +41,40 @@ class DefaultPhotoRepository @Inject constructor(
     private suspend fun getPhotos(
         page: Int,
         perPage: Int,
+        search: String
     ): List<Image> = withContext(dispatcherProvider.io) {
-        val result = api.fetchPhotos(page = page, perPage = perPage)
-        return@withContext when (result.isSuccessful) {
-            true -> {
-                result.body() ?: emptyList()
-            }
+        return@withContext if (search.isBlank()) {
+            val result = api.fetchPhotos(page = page, perPage = perPage)
+            when (result.isSuccessful) {
+                true -> {
+                    result.body() ?: emptyList()
+                }
 
-            false -> {
-                emptyList<Image>()
+                false -> {
+                    emptyList<Image>()
+                }
+            }
+        } else {
+            val result = api.searchPhotos(
+                searchPhotosName = search,
+                page = page,
+                perPage = perPage
+            )
+            when (result.isSuccessful) {
+                true -> {
+                    result.body()?.results ?: emptyList()
+                }
+
+                false -> {
+                    emptyList<Image>()
+                }
             }
         }
     }
 
     private companion object {
-        const val PAGE_SIZE = 20
+        const val PAGE_SIZE = 30
         const val PREFETCH_DISTANCE = 7
         const val MAX_SIZE = 220
     }
 }
-
-
-//        apiCall(dispatcherProvider) {
-//            api.fetchPhotos(page)
-//        }.apply {
-//            emit(this)
-//        }

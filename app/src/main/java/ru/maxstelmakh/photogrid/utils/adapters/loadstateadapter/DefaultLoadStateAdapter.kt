@@ -11,7 +11,6 @@ import ru.maxstelmakh.photogrid.databinding.ItemLoadStateBinding
 
 typealias TryAgainAction = () -> Unit
 
-
 class DefaultLoadStateAdapter(
     private val tryAgainAction: TryAgainAction
 ) : LoadStateAdapter<DefaultLoadStateAdapter.Holder>() {
@@ -47,5 +46,4 @@ class DefaultLoadStateAdapter(
             }
         }
     }
-
 }

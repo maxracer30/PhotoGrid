@@ -5,5 +5,6 @@ import kotlinx.coroutines.flow.Flow
 import ru.maxstelmakh.photogrid.utils.adapters.itemsadapter.ItemsAdapterModel
 
 interface PhotoRepository {
-    suspend fun fetch(): Flow<PagingData<ItemsAdapterModel>>
+    suspend fun fetch(search: String): Flow<PagingData<ItemsAdapterModel>>
+
 }
